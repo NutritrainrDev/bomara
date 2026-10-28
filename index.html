@@ -180,13 +180,22 @@ h1 .ln>span{display:block}
   .js .film{opacity:1;transition:none}
   .film,.cards,[data-speed]{transform:none!important}
 }
+
+/* Web Interface Guidelines */
+h1,h2,h3{text-wrap:balance}
+section[id]{scroll-margin-top:12px}
+a,button,label{touch-action:manipulation;-webkit-tap-highlight-color:rgba(127,127,127,.18)}
+body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+b,output{font-variant-numeric:tabular-nums}
+.nw{white-space:nowrap}
+html{color-scheme:dark}
 </style>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="top">
-  <a class="word" href="#" aria-label="Bomara, início">BOMARA</a>
+  <a class="word" translate="no" href="#" aria-label="Bomara, início">BOMARA</a>
   <nav aria-label="Seções">
     <a href="#sobre">Sobre</a>
     <a href="#atuacao">Atuação</a>
@@ -271,7 +280,7 @@ h1 .ln>span{display:block}
     <p><b>Navegação</b><a class="link" href="#sobre">Sobre</a><br><a class="link" href="#atuacao">Atuação</a><br><a class="link" href="#endereco">Onde estamos</a></p>
   </div>
   <div class="foot-name">
-    <p class="w">BOMARA</p>
+    <p class="w" translate="no">BOMARA</p>
     <small><a class="link" href="#">Voltar ao topo</a><br>Imagens e vídeo ilustrativos</small>
   </div>
 </footer>
