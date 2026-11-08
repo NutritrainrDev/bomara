@@ -162,23 +162,16 @@ a,button,label{-webkit-tap-highlight-color:rgba(201,162,77,.25);touch-action:man
 .chips label:active{transform:scale(.96)}
 .chips input:checked+label{background:var(--ink);color:var(--bg);font-weight:700}
 .chips input:focus-visible+label{outline:3px solid var(--gold);outline-offset:3px}
-#msg{margin:22px 0 18px;color:var(--muted);max-width:44ch}
+.build .acts{margin-top:24px}
 .map{grid-column:7/13;min-height:clamp(380px,42vw,620px);overflow:hidden;background:var(--surface)}
 .map iframe{display:block;width:100%;height:100%;min-height:inherit;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.4) brightness(.9) contrast(.95)} /* Google's embed has no dark style without an API key: inverting it and turning the hues back keeps the red pin */
-.where{grid-column:1/13;display:grid;grid-template-columns:repeat(12,1fr);gap:20px 24px;align-items:center}
-.where address{grid-column:1/8;font-style:normal;font-size:var(--step-lead);line-height:1.3;letter-spacing:-.015em}
-.where address b{display:block;font-weight:700}
-.where .acts{grid-column:8/13;justify-self:end;gap:10px 26px}
 #copiado{color:var(--gold);font-size:var(--step-small)}
 
-/* footer, compact */
-.ft{margin-top:clamp(96px,11vw,160px);background:var(--surface);padding:36px var(--m) 32px}
-.cols{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;line-height:1.45;color:var(--muted)}
-.cols>div{grid-column:span 3}
-.cols .who{grid-column:span 5}
-.cols .up{grid-column:span 1;justify-self:end;white-space:nowrap}
-.cols b{display:block;font-weight:700;color:var(--ink);margin-bottom:4px}
-.cols a{color:var(--ink)}
+/* footer: the one place the address appears */
+.ft{display:flex;align-items:center;justify-content:space-between;gap:24px 48px;flex-wrap:wrap;margin-top:clamp(96px,11vw,160px);background:var(--surface);padding:36px var(--m)}
+.ft address{font-style:normal;color:var(--muted)}
+.ft address b{display:block;font-weight:700;color:var(--ink)}
+.ft .acts{gap:6px 26px}
 
 /* entrances, only when the script runs */
 .js .rv{opacity:0;transform:translate3d(0,24px,0);transition:opacity .8s var(--ease),transform .8s var(--ease)}
@@ -188,7 +181,7 @@ a,button,label{-webkit-tap-highlight-color:rgba(201,162,77,.25);touch-action:man
 @media (max-width:899.98px){
   .hero{min-height:calc(100svh - 52px)}
   .nav a:not(.btn){display:none}
-  .say,.gold,.bar,.hold,.contact,.where{display:block}
+  .say,.gold,.bar,.hold,.contact,.ft{display:block}
   .say .txt{margin-top:18px}
   .gold .txt{margin-top:28px}
   .bar{padding:24px var(--m)}
@@ -197,11 +190,7 @@ a,button,label{-webkit-tap-highlight-color:rgba(201,162,77,.25);touch-action:man
   .contact .left{margin-bottom:40px}
   .map{min-height:78vw;margin:0 calc(var(--m) * -1) 32px}
   .num{font-size:clamp(2.5rem,11.4vw,4.5rem)}
-  .where .acts{margin-top:22px}
-  .cols{grid-template-columns:1fr 1fr;row-gap:28px}
-  .cols>div{grid-column:auto}
-  .cols .who{grid-column:1/3}
-  .cols .up{grid-column:1/3;justify-self:start}
+  .ft .acts{margin-top:18px}
   .ft{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
   html{scroll-padding-bottom:88px}
   .callbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:var(--bg);transform:translateY(110%);visibility:hidden;transition:transform .35s var(--ease),visibility 0s .35s}
@@ -335,7 +324,6 @@ a,button,label{-webkit-tap-highlight-color:rgba(201,162,77,.25);touch-action:man
           <input type="radio" name="tp" id="tp3" value="uma sala"><label for="tp3">Sala</label>
         </div>
       </fieldset>
-      <p id="msg" aria-live="polite">“Olá! Vim pelo site e quero falar sobre a administração de um imóvel residencial.”</p>
       <div class="acts">
         <a class="btn" id="pedidoBtn" href="https://wa.me/5521965813332?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20falar%20sobre%20a%20administra%C3%A7%C3%A3o%20de%20um%20im%C3%B3vel%20residencial." target="_blank" rel="noopener">Enviar no WhatsApp</a>
         <a class="btn line" href="tel:+5521965813332">Ligar</a>
@@ -345,25 +333,17 @@ a,button,label{-webkit-tap-highlight-color:rgba(201,162,77,.25);touch-action:man
   <div class="map rv">
     <iframe src="https://maps.google.com/maps?q=Avenida%20Miguel%20Ant%C3%B4nio%20Fernandes%2C%201333%2C%20Recreio%20dos%20Bandeirantes%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2022790-682&amp;z=16&amp;hl=pt-BR&amp;output=embed" title="Mapa do Google com a localização da Bomara na Avenida Miguel Antônio Fernandes, 1333, Recreio dos Bandeirantes" width="800" height="600" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
   </div>
-  <div class="where">
-    <address class="rv"><b>Bomara Empreendimentos e Administração Ltda.</b>Av. Miguel Antônio Fernandes, 1333, Ala A, sala 0405<br>Recreio dos Bandeirantes, Rio de Janeiro, RJ, <span style="white-space:nowrap">22790&#8209;682</span></address>
-    <div class="acts rv">
-      <a class="lnk" href="https://www.google.com/maps/dir/?api=1&amp;destination=Avenida+Miguel+Ant%C3%B4nio+Fernandes,+1333,+Recreio+dos+Bandeirantes,+Rio+de+Janeiro+-+RJ,+22790-682" target="_blank" rel="noopener">Como chegar</a>
-      <a class="lnk" href="https://waze.com/ul?q=Avenida%20Miguel%20Ant%C3%B4nio%20Fernandes%201333%20Recreio%20dos%20Bandeirantes&amp;navigate=yes" target="_blank" rel="noopener">Abrir no Waze</a>
-      <button class="plain" id="copiar" type="button">Copiar endereço</button>
-      <span id="copiado" role="status" aria-live="polite"></span>
-    </div>
-  </div>
 </section>
 
 </main>
 
 <footer class="ft">
-  <div class="cols">
-    <div class="who"><b>Bomara Empreendimentos e Administração Ltda.</b>Av. Miguel Antônio Fernandes, 1333, Ala A, sala 0405<br>Recreio dos Bandeirantes, Rio de Janeiro, RJ</div>
-    <div><b>Contato</b><a href="https://wa.me/5521965813332" target="_blank" rel="noopener">WhatsApp</a><br><a href="tel:+5521965813332">(21)&nbsp;96581&#8209;3332</a></div>
-    <div><b>Navegação</b><a href="#imoveis">Imóveis</a> · <a href="#holding">Holding</a> · <a href="#contato">Contato</a></div>
-    <div class="up"><a href="#topo">Voltar ao topo</a></div>
+  <address><b>Bomara Empreendimentos e Administração Ltda.</b>Av. Miguel Antônio Fernandes, 1333, Ala A, sala 0405<br>Recreio dos Bandeirantes, Rio de Janeiro, RJ, <span style="white-space:nowrap">22790&#8209;682</span></address>
+  <div class="acts">
+    <a class="lnk" href="https://www.google.com/maps/dir/?api=1&amp;destination=Avenida+Miguel+Ant%C3%B4nio+Fernandes,+1333,+Recreio+dos+Bandeirantes,+Rio+de+Janeiro+-+RJ,+22790-682" target="_blank" rel="noopener">Como chegar</a>
+    <a class="lnk" href="https://waze.com/ul?q=Avenida%20Miguel%20Ant%C3%B4nio%20Fernandes%201333%20Recreio%20dos%20Bandeirantes&amp;navigate=yes" target="_blank" rel="noopener">Abrir no Waze</a>
+    <button class="plain" id="copiar" type="button">Copiar endereço</button>
+    <span id="copiado" role="status" aria-live="polite"></span>
   </div>
 </footer>
 
@@ -403,10 +383,9 @@ a,button,label{-webkit-tap-highlight-color:rgba(201,162,77,.25);touch-action:man
   apply();
 
   /* message builder */
-  var f=d.getElementById('pedido'), msg=d.getElementById('msg'), pb=d.getElementById('pedidoBtn');
+  var f=d.getElementById('pedido'), pb=d.getElementById('pedidoBtn');
   function build(){
     var t='Olá! Vim pelo site e quero falar sobre a administração de '+f.querySelector('[name=tp]:checked').value+'.';
-    msg.textContent='“'+t+'”';
     pb.href='https://wa.me/5521965813332?text='+encodeURIComponent(t);
   }
   f.addEventListener('change',build);
